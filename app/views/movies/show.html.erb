@@ -45,6 +45,7 @@
             <div class="reviews">
               <div class="star-rating" data-score= <%= review.rating %> ></div>
               <p><%= review.comment %></p>
+              <p class="review-posted-by">Posted by <%= review.user.email %> <%= time_ago_in_words(review.created_at) %> ago</p>
             </div>
           <% end %>
         <% end %>
@@ -53,8 +54,8 @@
   </div>
 </div>
 
-<%= link_to 'Edit', edit_movie_path(@movie) %> |
-<%= link_to 'Back', movies_path %>
+<%= link_to 'Edit', edit_movie_path(@movie), class: "btn btn-default" %> |
+<%= link_to 'Back', movies_path, class: "btn btn-default" %>
 
 <script>
     $('.star-rating').raty({

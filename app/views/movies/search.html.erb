@@ -1,9 +1,13 @@
 <div class="row">
-  <% @movies.each do |movie| %>
-    <div class="col-sm-6 col-md-3">
-      <div class="thumbnail">
-        <%= link_to (image_tag movie.image.url(:medium), class: 'image'), movie %>
+  <% unless @movies.any? %>
+    <h2> No such movie. <%= link_to "Back", root_path %> </h2>
+  <% else %>
+    <% @movies.each do |movie| %>
+      <div class="col-sm-6 col-md-3">
+        <div class="thumbnail">
+          <%= link_to (image_tag movie.image.url(:medium), class: 'image'), movie %>
+        </div>
       </div>
-    </div>
+    <% end %>
   <% end %>
 </div>
